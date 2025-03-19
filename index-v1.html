@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=500px, initial-scale=1.0">
+    <meta name="description" content="Artikel SEO dengan gambar">
+    <title>Artikel SEO</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            width: 500px;
+            margin: auto;
+            padding: 20px;
+        }
+        img {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Judul Artikel</h1>
+    <p>Ini adalah artikel contoh yang digunakan untuk SEO. Artikel ini dioptimalkan untuk mesin pencari dengan menggunakan gambar dan teks yang relevan.</p>
+    
+    <script>
+        Promise.all([
+            fetch('image.txt').then(response => response.text()),
+            fetch('text.txt').then(response => response.text())
+        ]).then(([imageData, textData]) => {
+            const images = imageData.split('\n');
+            const texts = textData.split('\n');
+            const container = document.createElement('div');
+            images.forEach((imgSrc, index) => {
+                if (imgSrc.trim() !== '') {
+                    let div = document.createElement('div');
+                    div.className = 'image-container';
+                    let img = document.createElement('img');
+                    img.src = imgSrc.trim();
+                    img.loading = 'lazy';
+                    let caption = document.createElement('p');
+                    caption.textContent = texts[index] ? texts[index].trim() : `Gambar ${index + 1}`;
+                    div.appendChild(img);
+                    div.appendChild(caption);
+                    container.appendChild(div);
+                }
+            });
+            document.body.appendChild(container);
+        }).catch(error => console.error('Error fetching images or texts:', error));
+    </script>
+</body>
+</html>
