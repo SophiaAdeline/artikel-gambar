@@ -2,7 +2,8 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=500px, initial-scale=1.0">
+    <!-- Perbaiki viewport untuk responsivitas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Artikel SEO dengan gambar">
     <title>Artikel SEO</title>
     <style>
@@ -10,17 +11,27 @@
             background-color: black;
             color: white;
             font-family: Arial, sans-serif;
-            width: 500px;
             margin: auto;
             padding: 20px;
+            max-width: 800px; /* agar tetap rapi di layar besar */
+        }
+        h1 {
+            text-align: center;
         }
         img {
             width: 100%;
+            height: auto;
             margin-top: 10px;
         }
         .image-container {
-            text-align: center;
+            text-align: left;
             margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
         }
     </style>
 </head>
